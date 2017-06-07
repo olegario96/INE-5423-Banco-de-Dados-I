@@ -20,16 +20,34 @@
         \includegraphics[scale=1.0]{visaoGeral.png}
         
         \subsection{Visão ampliada}
-        \includegraphics[scale=0.5]{primeiroQuadrante.png}
-        \includegraphics[scale=0.5]{segundoQuadrante.png}
-        \includegraphics[scale=0.5]{terceiroQuadrante.png}
-        \includegraphics[scale=0.5]{quartoQuadrante.png}
-        \includegraphics[scale=0.5]{quintoQuadrante.png}
-        \includegraphics[scale=0.5]{sextoQuadrante.png}
-        \includegraphics[scale=0.5]{setimoQuadrante.png}
-        \includegraphics[scale=0.5]{oitavoQuadrante.png}
-        \includegraphics[scale=0.5]{nonoQuadrante.png}
-        \includegraphics[scale=0.5]{decimoquadrante.png}
+        \includegraphics[scale=0.55]{primeiroQuadrante.png}
+        \\
+        \\
+        \includegraphics[scale=0.55]{segundoQuadrante.png}
+        \\
+        \\
+        \includegraphics[scale=0.55]{terceiroQuadrante.png}
+        \\
+        \\
+        \includegraphics[scale=0.7]{quartoQuadrante.png}
+        \\
+        \\
+        \includegraphics[scale=0.6]{quintoQuadrante.png}
+        \\
+        \\
+        \includegraphics[scale=0.6]{sextoQuadrante.png}
+        \\
+        \\
+        \includegraphics[scale=0.55]{setimoQuadrante.png}
+        \\
+        \\
+        \includegraphics[scale=0.55]{oitavoQuadrante.png}
+        \\
+        \\
+        \includegraphics[scale=0.55]{nonoQuadrante.png}
+        \\
+        \\
+        \includegraphics[scale=0.55]{decimoquadrante.png}
         
     \pagebreak
     \section{Modelo lógico}
@@ -151,7 +169,8 @@
             	descricaoTipoMovel varchar(50) not null,
             	idModeloMovel int not null,
             	primary key (idTipoMovel),
-            	foreign key (idModeloMovel) references ModeloMovel(idModeloMovel)
+            	foreign key (idModeloMovel) references 
+            	    ModeloMovel(idModeloMovel)
             );
             
             create table EstadoCivil (
@@ -234,7 +253,8 @@
             	valorParcela int not null, 
             	idApoliceImobiliaria int not null,
             	primary key (idNegocio),
-            	foreign key (idApoliceImobiliaria) references ApoliceImobiliaria(idApoliceImobiliaria)
+            	foreign key (idApoliceImobiliaria) references 
+            	    ApoliceImobiliaria(idApoliceImobiliaria)
             );
             
             create table Finalidade (
@@ -312,9 +332,12 @@
             	idPaisNaturalidade varchar(3) not null,
             	foreign key (CPF) references Pessoa(CPF),
             	foreign key (idUF) references UF(idUF),
-            	foreign key (idEstadoCivil) references EstadoCivil(idEstadoCivil),
-            	foreign key (idRegimeCasamento) references RegimeCasamento(idRegimeCasamento),
-            	foreign key (idImobiliaria) references ReferenciaImobiliaria(idImobiliaria),
+            	foreign key (idEstadoCivil) references 
+            	    EstadoCivil(idEstadoCivil),
+            	foreign key (idRegimeCasamento) references 
+            	    RegimeCasamento(idRegimeCasamento),
+            	foreign key (idImobiliaria) references 
+            	    ReferenciaImobiliaria(idImobiliaria),
             	foreign key (idPaisNacionalidade) references Pais(idPais),
             	foreign key (idPaisNaturalidade) references Pais(idPais),
             	primary key (CPF)
@@ -329,7 +352,8 @@
             	idTipoMovel int not null,
             	primary key (idBemMovel),
             	foreign key (CPF) references Locatario(CPF),
-            	foreign key (idTipoMovel) references TipoMovel(idTipoMovel)
+            	foreign key (idTipoMovel) references 
+            	    TipoMovel(idTipoMovel)
             );
             
             create table BemImovel (
@@ -345,17 +369,22 @@
             	idCartorio int not null,
             	primary key (idBemImovel),
             	foreign key (CPF) references Locatario(CPF),
-            	foreign key (idEndereco) references Endereco(idEndereco),
-            	foreign key (idTipoImovel) references TipoImovel(idTipoImovel),
-            	foreign key (idSituacao) references Situacao(idSituacao),
-            	foreign key (idCartorio) references Cartorio(idCartorio)
+            	foreign key (idEndereco) references 
+            	    Endereco(idEndereco),
+            	foreign key (idTipoImovel) references 
+            	    TipoImovel(idTipoImovel),
+            	foreign key (idSituacao) references 
+            	    Situacao(idSituacao),
+            	foreign key (idCartorio) references 
+            	    Cartorio(idCartorio)
             );
             
             create table LocatarioReferenciaComercial (
             	CPF varchar(20) not null,
             	idReferenciaComercial int not null,
             	foreign key (CPF) references Locatario(CPF),
-            	foreign key (idReferenciaComercial) references ReferenciaComercial(idReferenciaComercial),
+            	foreign key (idReferenciaComercial) references 
+            	    ReferenciaComercial(idReferenciaComercial),
             	primary key (CPF, idReferenciaComercial)
             );
             
@@ -363,7 +392,8 @@
             	CPF varchar(20) not null,
             	idReferenciaBancaria int not null,
             	foreign key (CPF) references Locatario(CPF),
-            	foreign key (idReferenciaBancaria) references ReferenciaBancaria(idReferenciaBancaria),
+            	foreign key (idReferenciaBancaria) references 
+            	    ReferenciaBancaria(idReferenciaBancaria),
             	primary key (CPF, idReferenciaBancaria)
             );
             
@@ -384,7 +414,8 @@
             	tempoServico int not null,
             	dataAdmissao date not null,
             	foreign key (CPF) references Pessoa(CPF),
-            	foreign key (idEmpregador) references Empregador(idEmpregador),
+            	foreign key (idEmpregador) references 
+            	    Empregador(idEmpregador),
             	primary key (CPF, idEmpregador)
             );
             
@@ -400,9 +431,12 @@
             	idEndereco int not null,
             	primary key (idFicha),
             	foreign key (CPF) references Locatario(CPF),
-            	foreign key (idNegocio) references Negociacao(idNegocio),
-            	foreign key (idFinalidade) references Finalidade(idFinalidade),
-            	foreign key (idEndereco) references Endereco(idEndereco)
+            	foreign key (idNegocio) references 
+            	    Negociacao(idNegocio),
+            	foreign key (idFinalidade) references 
+            	    Finalidade(idFinalidade),
+            	foreign key (idEndereco) references 
+            	    Endereco(idEndereco)
             );
             
             create table OcupanteResidencial (
@@ -413,7 +447,8 @@
             	idParentesco int not null,
             	idFicha int not null,
             	primary key (idOcupanteResidencial),
-            	foreign key (idParentesco) references Parentesco(idParentesco),
+            	foreign key (idParentesco) references 
+            	    Parentesco(idParentesco),
             	foreign key (idFicha) references Ficha(idFicha)
             );
             
